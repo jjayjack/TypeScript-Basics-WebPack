@@ -27,3 +27,11 @@ _Check that within `tsconfig`, sourceMap is set to true._
 The `devtool` property should be set so that WebPack knows there should be source maps already.
 
 Within the **package.json** file a new script must be set to run webpack. Then remove everything that has been rendered with the dist folder and run `npm run build` to create a WebPack compiled dist component.
+
+### Updating Configs to run Server in Dev Mode
+
+Start by updating **package.json** with script `"start":"webpack-dev-server"`
+
+This change will allow the application to run your Server in development mode.
+
+Next update **webpack.config.js** with adding output `publicPath: 'dist'`. Also add mode to `development`.
