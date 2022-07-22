@@ -35,3 +35,13 @@ Start by updating **package.json** with script `"start":"webpack-dev-server"`
 This change will allow the application to run your Server in development mode.
 
 Next update **webpack.config.js** with adding output `publicPath: 'dist'`. Also add mode to `development`.
+
+### Updating Configs to run in Production
+
+Creating a new WebPack file to store Production code scripts. Can be any naming convention as the user will tell code where to look for it.
+
+First new item that is defined are plugins which be applied to whole workflow.
+`npm install --save-dev clean-webpack-plugin`
+Once installed, import it as a requirement for the file and instantiate it within plugins as `new CleanPlugin.CleanWebpackPlugin()`. This plugin will tell WebPack that before it runs something to the output folder, it will clear everything that is inside.
+
+To use the newly formed WebPack configured file we will update **package.json**. Within the scripts build will be set to `"webpack --config (NEW_CONFIG_FILE).js"`
